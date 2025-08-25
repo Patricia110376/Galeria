@@ -13,13 +13,13 @@
     margin: 0;
     font-family: 'Gentium Basic', serif;
     background-color: #4ea841;
-    color: #fff;
   }
 
   h1 {
     text-align: center;
     padding: 20px;
     font-size: 2em;
+    color: #fff;
   }
 
   /* Galeria de miniaturas */
@@ -34,27 +34,28 @@
   .thumb-container {
     text-align: center;
     position: relative;
+    background-color: #4ea841;
   }
 
   .thumb-container img {
     width: 100%;
     display: block;
     border: 10px solid #fff; /* borda polaroid */
-    padding-bottom: 25px; /* espaço para legenda */
-    box-shadow: 2px 4px 8px rgba(0,0,0,0.5);
+    border-bottom-width: 40px; /* espaço para legenda dentro da borda */
     border-radius: 4px;
-    background-color: #4ea841;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.5);
     cursor: pointer;
   }
 
   .thumb-caption {
     position: absolute;
-    bottom: 5px;
+    bottom: 10px;
     left: 0;
     width: 100%;
-    color: #000;
+    text-align: center;
+    font-size: 0.85em;
     font-weight: bold;
-    font-size: 0.9em;
+    color: #000;
   }
 
   /* Modal */
@@ -66,7 +67,7 @@
     top: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #4ea841; 
+    background-color: #4ea841;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,116 +77,6 @@
     max-width: 90vw;
     max-height: 90vh;
     object-fit: contain;
-    border: 10px solid #fff; /* borda polaroid só na imagem */
-    border-radius: 4px;
-    box-shadow: 2px 4px 12px rgba(0,0,0,0.7);
-  }
-
-  .modal-caption {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 1em;
-    color: #000;
-  }
-
-  /* Botões */
-  .close, .prev, .next {
-    position: absolute;
-    font-size: 40px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    user-select: none;
-    padding: 12px;
-    background: rgba(0,0,0,0.3);
-    border-radius: 50%;
-    z-index: 1000;
-  }
-  .close {
-    top: 20px;
-    right: 35px;
-    font-size: 45px;
-    background: rgba(0,0,0,0.5);
-  }
-  .prev { left: 20px; top: 50%; transform: translateY(-50%); }
-  .next { right: 20px; top: 50%; transform: translateY(-50%); }
-
-  @media (max-width: 800px) {
-    .gallery {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-</style>
-</head>
-<body>
-
-<h1>Galeria de Imagens Biodiversidade do CaVG</h1>
-
-<div class="gallery">
-  <div class="thumb-container">
-    <img src="https://i.postimg.cc/SNMsnSnk/Espor-fito-e-gamet-fito.jpg" alt="Esporófito e gametófito" onclick="openModal(0)">
-    <div class="thumb-caption">Esporófito e gametófito</div>
-  </div>
-  <div class="thumb-container">
-    <img src="https://i.postimg.cc/brsP3sCG/Espor-fito-e-gamet-fito.png" alt="Microscopia do esporófito" onclick="openModal(1)">
-    <div class="thumb-caption">Microscopia do esporófito</div>
-  </div>
-  <div class="thumb-container">
-    <img src="https://i.postimg.cc/3R5SrF46/exemplo.jpg" alt="Exemplo de célula" onclick="openModal(2)">
-    <div class="thumb-caption">Exemplo de célula</div>
-  </div>
-  <div class="thumb-container">
-    <img src="https://i.postimg.cc/QM5Zb3mY/exemplo2.jpg" alt="Estrutura foliar" onclick="openModal(3)">
-    <div class="thumb-caption">Estrutura foliar</div>
-  </div>
-  <div class="thumb-container">
-    <img src="https://i.postimg.cc/4d2zP1Wc/exemplo3.jpg" alt="Detalhe do caule" onclick="openModal(4)">
-    <div class="thumb-caption">Detalhe do caule</div>
-  </div>
-  <div class="thumb-container">
-    <img src="https://i.postimg.cc/8zGyCvJb/exemplo4.jpg" alt="Raiz observada" onclick="openModal(5)">
-    <div class="thumb-caption">Raiz observada</div>
-  </div>
-</div>
-
-<div id="myModal" class="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
-  <span class="next" onclick="changeSlide(1)">&#10095;</span>
-  <div>
-    <img class="modal-content" id="modalImage">
-    <div class="modal-caption" id="caption"></div>
-  </div>
-</div>
-
-<script>
-  const images = document.querySelectorAll('.gallery img');
-  const captions = Array.from(document.querySelectorAll('.thumb-caption')).map(div => div.innerText);
-  let currentIndex = 0;
-
-  function openModal(index) {
-    currentIndex = index;
-    document.getElementById('myModal').style.display = "flex";
-    document.getElementById('modalImage').src = images[index].src;
-    document.getElementById('caption').innerText = captions[index];
-  }
-
-  function closeModal() {
-    document.getElementById('myModal').style.display = "none";
-  }
-
-  function changeSlide(step) {
-    currentIndex += step;
-    if (currentIndex >= images.length) currentIndex = 0;
-    if (currentIndex < 0) currentIndex = images.length - 1;
-    document.getElementById('modalImage').src = images[currentIndex].src;
-    document.getElementById('caption').innerText = captions[currentIndex];
-  }
-
-  document.getElementById('myModal').addEventListener('click', function(e){
-    if(e.target === this) closeModal();
-  });
-</script>
-
-</body>
-</html>
+    border: 10px solid #fff; /* borda polaroid apenas na imagem */
+    border-bottom-width: 50px; /* espaço para legenda */
+    border
