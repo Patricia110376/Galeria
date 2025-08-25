@@ -12,7 +12,7 @@
   body {
     margin: 0;
     font-family: 'Gentium Basic', serif;
-    background-color: #4ea841; /* fundo da página */
+    background-color: #4ea841;
     color: #fff;
   }
 
@@ -32,26 +32,24 @@
   }
 
   .thumb-container {
-    background-color: #4ea841; /* fundo das miniaturas */
-    display: inline-block;
     text-align: center;
-    border: 10px solid #fff; /* borda polaroid */
-    padding: 10px 10px 35px 10px; /* espaço inferior maior para legenda */
-    box-shadow: 2px 4px 8px rgba(0,0,0,0.5);
-    border-radius: 8px;
     position: relative;
   }
 
   .thumb-container img {
     width: 100%;
     display: block;
-    border: none; /* remove borda original da imagem */
+    border: 10px solid #fff; /* borda polaroid */
+    padding-bottom: 25px; /* espaço para legenda */
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.5);
     border-radius: 4px;
+    background-color: #4ea841;
+    cursor: pointer;
   }
 
   .thumb-caption {
     position: absolute;
-    bottom: 10px;
+    bottom: 5px;
     left: 0;
     width: 100%;
     color: #000;
@@ -59,7 +57,7 @@
     font-size: 0.9em;
   }
 
-  /* Modal de zoom */
+  /* Modal */
   .modal {
     display: none;
     position: fixed;
@@ -68,37 +66,29 @@
     top: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #4ea841; /* fundo verde */
+    background-color: #4ea841; 
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .modal-content-container {
-    position: relative;
-    border: 10px solid #fff; /* borda polaroid */
-    box-shadow: 2px 4px 12px rgba(0,0,0,0.7);
-    background-color: #4ea841;
-  }
-
   .modal-content {
-    display: block;
-    width: 90vw;
-    height: 90vh;
+    max-width: 90vw;
+    max-height: 90vh;
     object-fit: contain;
+    border: 10px solid #fff; /* borda polaroid só na imagem */
     border-radius: 4px;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.7);
   }
 
   .modal-caption {
     text-align: center;
-    padding: 10px;
-    background-color: #fff;
-    color: #000;
+    margin-top: 10px;
     font-size: 1em;
-    border-top: 1px solid #ccc;
+    color: #000;
   }
 
-  /* Botões de navegação */
+  /* Botões */
   .close, .prev, .next {
     position: absolute;
     font-size: 40px;
@@ -120,7 +110,6 @@
   .prev { left: 20px; top: 50%; transform: translateY(-50%); }
   .next { right: 20px; top: 50%; transform: translateY(-50%); }
 
-  /* Responsividade */
   @media (max-width: 800px) {
     .gallery {
       grid-template-columns: repeat(2, 1fr);
@@ -132,7 +121,6 @@
 
 <h1>Galeria de Imagens Biodiversidade do CaVG</h1>
 
-<!-- Galeria -->
 <div class="gallery">
   <div class="thumb-container">
     <img src="https://i.postimg.cc/SNMsnSnk/Espor-fito-e-gamet-fito.jpg" alt="Esporófito e gametófito" onclick="openModal(0)">
@@ -160,12 +148,11 @@
   </div>
 </div>
 
-<!-- Modal -->
 <div id="myModal" class="modal">
   <span class="close" onclick="closeModal()">&times;</span>
   <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
   <span class="next" onclick="changeSlide(1)">&#10095;</span>
-  <div class="modal-content-container">
+  <div>
     <img class="modal-content" id="modalImage">
     <div class="modal-caption" id="caption"></div>
   </div>
@@ -195,7 +182,6 @@
     document.getElementById('caption').innerText = captions[currentIndex];
   }
 
-  // Fecha modal clicando fora
   document.getElementById('myModal').addEventListener('click', function(e){
     if(e.target === this) closeModal();
   });
