@@ -32,9 +32,9 @@ h1 {
   flex-direction: column;
   align-items: center;
   border: 10px solid #fff;
-  border-bottom-width: 50px;
+  border-bottom-width: 50px; /* espaço para legenda */
   border-radius: 4px;
-  background-color: #4ea841;
+  background-color: #fff; /* branca para polaroid */
   box-shadow: 2px 4px 8px rgba(0,0,0,0.5);
   cursor: pointer;
   overflow: hidden;
@@ -47,10 +47,12 @@ h1 {
 }
 
 .thumb-caption {
-  margin-top: 5px;
+  width: 100%;
   font-weight: bold;
   color: #000;
   font-size: 0.9em;
+  padding: 5px 0;
+  background-color: #fff; /* fundo da legenda igual à borda */
 }
 
 /* Modal tela cheia */
@@ -62,7 +64,7 @@ h1 {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(78,168,65,0.95);
+  background-color: #4ea841;
   align-items: center;
   justify-content: center;
 }
@@ -70,27 +72,32 @@ h1 {
 .modal-polaroid {
   display: flex;
   flex-direction: column;
+  align-items: center;
   border: 10px solid #fff;
-  border-bottom-width: 50px;
+  border-bottom-width: 60px;
   border-radius: 4px;
-  background-color: #4ea841;
-  box-shadow: 2px 4px 12px rgba(0,0,0,0.7);
+  background-color: #fff;
   max-width: 95vw;
   max-height: 95vh;
+  box-shadow: 2px 4px 12px rgba(0,0,0,0.7);
   text-align: center;
   overflow: hidden;
 }
 
 .modal-polaroid img {
-  max-width: 100%;
-  max-height: 90vh;
+  width: auto;
+  height: 90vh;
+  max-width: 95vw;
   object-fit: contain;
 }
 
 .modal-caption {
-  padding: 5px;
+  width: 100%;
   font-weight: bold;
   color: #000;
+  font-size: 1em;
+  padding: 5px 0;
+  background-color: #fff;
 }
 
 /* Botões */
@@ -165,7 +172,8 @@ let currentIndex = 0;
 function openModal(index) {
   currentIndex = index;
   document.getElementById('myModal').style.display = 'flex';
-  document.getElementById('modalImage').src = images[index].src;
+  const modalImage = document.getElementById('modalImage');
+  modalImage.src = images[index].src;
   document.getElementById('caption').innerText = captions[index];
 }
 
@@ -177,7 +185,8 @@ function changeSlide(step) {
   currentIndex += step;
   if(currentIndex >= images.length) currentIndex = 0;
   if(currentIndex < 0) currentIndex = images.length - 1;
-  document.getElementById('modalImage').src = images[currentIndex].src;
+  const modalImage = document.getElementById('modalImage');
+  modalImage.src = images[currentIndex].src;
   document.getElementById('caption').innerText = captions[currentIndex];
 }
 
