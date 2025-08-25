@@ -17,6 +17,8 @@ h1 {
   font-size: 2em;
   color: #fff;
 }
+
+/* Galeria de miniaturas */
 .gallery {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -24,24 +26,27 @@ h1 {
   justify-items: center;
   padding: 20px;
 }
-/* Miniaturas polaroid */
+
 .thumb-polaroid {
   display: flex;
   flex-direction: column;
-  background-color: #4ea841;
+  align-items: center;
   border: 10px solid #fff;
-  border-bottom-width: 50px; /* espaço para legenda */
+  border-bottom-width: 50px;
   border-radius: 4px;
+  background-color: #4ea841;
   box-shadow: 2px 4px 8px rgba(0,0,0,0.5);
   cursor: pointer;
   overflow: hidden;
   text-align: center;
 }
+
 .thumb-polaroid img {
   width: 100%;
   display: block;
 }
-.thumb-polaroid .thumb-caption {
+
+.thumb-caption {
   margin-top: 5px;
   font-weight: bold;
   color: #000;
@@ -61,25 +66,31 @@ h1 {
   align-items: center;
   justify-content: center;
 }
-.modal-content-container {
+
+.modal-polaroid {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-.modal-content {
-  max-width: 95vw;
-  max-height: 90vh;
-  object-fit: contain;
   border: 10px solid #fff;
   border-bottom-width: 50px;
   border-radius: 4px;
+  background-color: #4ea841;
   box-shadow: 2px 4px 12px rgba(0,0,0,0.7);
+  max-width: 95vw;
+  max-height: 95vh;
+  text-align: center;
+  overflow: hidden;
 }
+
+.modal-polaroid img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
 .modal-caption {
-  margin-top: -45px; /* coloca a legenda dentro da borda inferior */
+  padding: 5px;
   font-weight: bold;
   color: #000;
-  text-align: center;
 }
 
 /* Botões */
@@ -139,8 +150,9 @@ h1 {
   <span class="close" onclick="closeModal()">&times;</span>
   <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
   <span class="next" onclick="changeSlide(1)">&#10095;</span>
-  <div class="modal-content-container">
-    <img class="modal-content" id="modalImage">
+
+  <div class="modal-polaroid">
+    <img id="modalImage" src="">
     <div class="modal-caption" id="caption"></div>
   </div>
 </div>
@@ -153,8 +165,7 @@ let currentIndex = 0;
 function openModal(index) {
   currentIndex = index;
   document.getElementById('myModal').style.display = 'flex';
-  const modalImage = document.getElementById('modalImage');
-  modalImage.src = images[index].src;
+  document.getElementById('modalImage').src = images[index].src;
   document.getElementById('caption').innerText = captions[index];
 }
 
@@ -166,8 +177,7 @@ function changeSlide(step) {
   currentIndex += step;
   if(currentIndex >= images.length) currentIndex = 0;
   if(currentIndex < 0) currentIndex = images.length - 1;
-  const modalImage = document.getElementById('modalImage');
-  modalImage.src = images[currentIndex].src;
+  document.getElementById('modalImage').src = images[currentIndex].src;
   document.getElementById('caption').innerText = captions[currentIndex];
 }
 
