@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galeria de Imagens</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+
+  /* Galeria */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    justify-items: center;
+    padding: 20px;
+  }
+  .gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border: 2px solid #ccc;
+  }
+  .gallery img:hover {
+    transform: scale(1.05);
+    border-color: #666;
+  }
+
+  /* Modal tela cheia */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.95);
+  }
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Botões de navegação */
+  .close, .prev, .next {
+    position: absolute;
+    top: 50%;
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    padding: 12px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+  }
+  .close {
+    top: 20px;
+    right: 35px;
+    font-size: 45px;
+    background: none;
+    transform: none;
+  }
+  .prev { left: 20px; }
+  .next { right: 20px; }
+
+  /* Legenda */
+  #caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    background: rgba(0,0,0,0.5);
+    padding: 6px 12px;
+    border-radius: 6px;
+  }
+
+  /* Responsividade */
+  @media (max-width: 800px) {
+    .gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Galeria -->
+<div class="gallery">
+  <img src="https://i.postimg.cc/SNMsnSnk/Espor-fito-e-gamet-fito.jpg" alt="Esporófito e gametófito" onclick="openModal(0)">
+  <img src="https://i.postimg.cc/brsP3sCG/Espor-fito-e-gamet-fito.png" alt="Microscopia do esporófito" onclick="openModal(1)">
+  <img src="https://i.postimg.cc/3R5SrF46/exemplo.jpg" alt="Exemplo de célula" onclick="openModal(2)">
+  <img src="https://i.postimg.cc/QM5Zb3mY/exemplo2.jpg" alt="Estrutura foliar" onclick="openModal(3)">
+  <img src="https://i.postimg.cc/4d2zP1Wc/exemplo3.jpg" alt="Detalhe do caule" onclick="openModal(4)">
+  <img src="https://i.postimg.cc/8zGyCvJb/exemplo4.jpg" alt="Raiz observada" onclick="openModal(5)">
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
+  <span class="next" onclick="changeSlide(1)">&#10095;</span>
+  <img class="modal-content" id="modalImage">
+  <div id="caption"></div>
+</div>
+
+<script>
+  const images = document.querySelectorAll('.gallery img');
+  let currentIndex = 0;
+
+  function openModal(index) {
+    currentIndex = index;
+    document.getElementById('myModal').style.display = "block";
+    document.getElementById('modalImage').src = images[index].src;
+    document.getElementById('caption').innerText = images[index].alt;
+  }
+
+  function closeModal() {
+    document.getElementById('myModal').style.display = "none";
+  }
+
+  function changeSlide(step) {
+    currentIndex += step;
+    if (currentIndex >= images.length) currentIndex = 0;
+    if (currentIndex < 0) currentIndex = images.length - 1;
+    document.getElementById('modalImage').src = images[currentIndex].src;
+    document.getElementById('caption').innerText = images[currentIndex].alt;
+  }
+
+  // Fecha o modal clicando fora da imagem
+  document.getElementById('myModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+</script>
+
+</body>
+</html>
