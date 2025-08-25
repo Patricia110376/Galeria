@@ -4,10 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Galeria de Imagens Biodiversidade do CaVG</title>
+
+<!-- Fonte Gentium Basic -->
+<link href="https://fonts.googleapis.com/css2?family=Gentium+Basic&display=swap" rel="stylesheet">
+
 <style>
   body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Gentium Basic', serif;
     background-color: #4ea841; /* fundo da página */
     color: #fff;
   }
@@ -29,25 +33,30 @@
 
   .thumb-container {
     background-color: #4ea841; /* fundo das miniaturas */
-    border-radius: 8px;
-    padding: 5px;
+    display: inline-block;
     text-align: center;
-    position: relative;
     border: 10px solid #fff; /* borda polaroid */
+    padding: 10px 10px 35px 10px; /* espaço inferior maior para legenda */
     box-shadow: 2px 4px 8px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    position: relative;
   }
 
   .thumb-container img {
     width: 100%;
-    height: auto;
-    cursor: pointer;
+    display: block;
+    border: none; /* remove borda original da imagem */
     border-radius: 4px;
   }
 
   .thumb-caption {
-    margin-top: 5px;
-    font-size: 0.9em;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
     color: #000;
+    font-weight: bold;
+    font-size: 0.9em;
   }
 
   /* Modal de zoom */
@@ -74,8 +83,8 @@
 
   .modal-content {
     display: block;
-    max-width: 90vw;
-    max-height: 80vh;
+    width: 90vw;
+    height: 90vh;
     object-fit: contain;
     border-radius: 4px;
   }
