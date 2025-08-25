@@ -16,26 +16,38 @@ h1 {
   padding: 20px;
   font-size: 2em;
   color: #fff;
+  margin-top: 80px; /* espaço para não ficar atrás do botão */
 }
 
-/* Botão Voltar */
+/* Botão Voltar fixo */
 .back-button {
-  display: inline-block;
-  margin: 10px 20px;
-  padding: 10px 20px;
+  position: fixed;
+  top: 15px;
+  left: 20px;
+  padding: 8px 16px;
   font-size: 1em;
   font-weight: bold;
   color: #fff;
-  background-color: #2c6e2c;
-  border: none;
+  background-color: transparent;
+  border: 2px solid #fff;
   border-radius: 6px;
   cursor: pointer;
   text-decoration: none;
-  box-shadow: 2px 4px 6px rgba(0,0,0,0.4);
-  transition: background 0.3s;
+  z-index: 10000;
+  transition: background 0.3s, color 0.3s;
 }
 .back-button:hover {
-  background-color: #245a24;
+  background-color: #fff;
+  color: #2c6e2c;
+}
+
+/* Logo no canto superior direito */
+.logo {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  height: 60px;
+  z-index: 10000;
 }
 
 /* Galeria de miniaturas */
@@ -155,11 +167,15 @@ h1 {
 <body>
 
 <!-- Botão de voltar -->
-<a href="https://sites.google.com/view/biodiversidade-do-cavg/" class="back-button">⬅ Voltar ao Site</a>
+<a href="https://sites.google.com/view/biodiversidade-do-cavg/p%C3%A1gina-inicial" class="back-button">↩ Voltar</a>
+
+<!-- Logo -->
+<img src="https://i.postimg.cc/d0BYm8Ly/P-rtico-Bio-Ori-Red.jpg" alt="Logo CaVG" class="logo">
 
 <h1>Galeria de Imagens Biodiversidade do CaVG</h1>
 
 <div class="gallery">
+  <!-- 12 imagens -->
   <div class="thumb-polaroid" onclick="openModal(0)">
     <img src="https://i.postimg.cc/g0Gwj1fF/Boa.jpg" alt="Alma-de-gato">
     <div class="thumb-caption">Alma-de-gato</div>
@@ -184,8 +200,33 @@ h1 {
     <img src="https://i.postimg.cc/SNpVVx9W/Boa-1.jpg" alt="Caracará ou Gavião-de-queimada">
     <div class="thumb-caption">Caracará ou Gavião-de-queimada</div>
   </div>
+  <div class="thumb-polaroid" onclick="openModal(6)">
+    <img src="https://i.postimg.cc/tTNQXQ3F/Img-2.jpg" alt="Coruja-buraqueira">
+    <div class="thumb-caption">Coruja-buraqueira</div>
+  </div>
+  <div class="thumb-polaroid" onclick="openModal(7)">
+    <img src="https://i.postimg.cc/zf4bH9hD/Img-3.jpg" alt="Garça-branca-grande">
+    <div class="thumb-caption">Garça-branca-grande</div>
+  </div>
+  <div class="thumb-polaroid" onclick="openModal(8)">
+    <img src="https://i.postimg.cc/SR6hmLpK/Img-4.jpg" alt="João-de-barro">
+    <div class="thumb-caption">João-de-barro</div>
+  </div>
+  <div class="thumb-polaroid" onclick="openModal(9)">
+    <img src="https://i.postimg.cc/8cTtqRvX/Img-5.jpg" alt="Pica-pau-verde-barrado">
+    <div class="thumb-caption">Pica-pau-verde-barrado</div>
+  </div>
+  <div class="thumb-polaroid" onclick="openModal(10)">
+    <img src="https://i.postimg.cc/BQ9ZKc1N/Img-6.jpg" alt="Sabiá-do-campo">
+    <div class="thumb-caption">Sabiá-do-campo</div>
+  </div>
+  <div class="thumb-polaroid" onclick="openModal(11)">
+    <img src="https://i.postimg.cc/G2ptt4qR/Img-7.jpg" alt="Tucano-toco">
+    <div class="thumb-caption">Tucano-toco</div>
+  </div>
 </div>
 
+<!-- Modal -->
 <div id="myModal" class="modal">
   <span class="close" onclick="closeModal()">&times;</span>
   <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
