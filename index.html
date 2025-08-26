@@ -16,38 +16,38 @@ h1 {
   padding: 20px;
   font-size: 2em;
   color: #fff;
-  margin-top: 80px; /* espaço para não ficar atrás do botão */
+  position: relative;
 }
 
-/* Botão Voltar fixo */
+/* Botão voltar */
 .back-button {
   position: fixed;
-  top: 15px;
-  left: 20px;
+  top: 20px;
+  left: 20px; /* alinhado com borda esquerda */
   padding: 8px 16px;
-  font-size: 1em;
+  font-size: 16px;
   font-weight: bold;
   color: #fff;
-  background-color: transparent;
   border: 2px solid #fff;
+  background: transparent;
   border-radius: 6px;
   cursor: pointer;
-  text-decoration: none;
-  z-index: 10000;
-  transition: background 0.3s, color 0.3s;
+  z-index: 1100;
 }
 .back-button:hover {
-  background-color: #fff;
-  color: #2c6e2c;
+  background: rgba(255,255,255,0.2);
 }
 
-/* Logo no canto superior direito */
+/* Logo */
 .logo {
   position: fixed;
-  top: 10px;
-  right: 20px;
-  height: 60px;
-  z-index: 10000;
+  top: 15px;
+  right: 20px; /* alinhado com borda direita */
+  width: 80px;
+  z-index: 1000;
+}
+.modal .logo {
+  display: none; /* esconde o logo no zoom */
 }
 
 /* Galeria de miniaturas */
@@ -63,38 +63,33 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 4px solid #fff;
-  border-bottom-width: 22px;
+  border: 6px solid #fff;
+  border-bottom-width: 38px; /* espaço menor para legenda */
   border-radius: 4px;
   background-color: #fff;
   box-shadow: 2px 4px 8px rgba(0,0,0,0.5);
   cursor: pointer;
-  text-align: center;
-  width: 160px;
-  height: 170px;
-  position: relative;
   overflow: hidden;
+  text-align: center;
+  width: 150px;
+  height: 150px;
 }
-
 .thumb-polaroid img {
   width: 100%;
-  height: 140px;
+  height: 100%;
   object-fit: cover;
 }
-
 .thumb-caption {
   position: absolute;
-  bottom: 0;
-  width: 100%;
+  bottom: 6px;
+  width: 140px;
   font-weight: bold;
   color: #000;
   font-size: 0.75em;
-  line-height: 1.1em;
-  max-height: 2.2em;
+  text-align: center;
+  line-height: 1.2em;
+  max-height: 2.4em; /* máximo 2 linhas */
   overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 2px 3px;
-  background-color: #fff;
 }
 
 /* Modal tela cheia */
@@ -110,39 +105,36 @@ h1 {
   align-items: center;
   justify-content: center;
 }
-
 .modal-polaroid {
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 10px solid #fff;
-  border-bottom-width: 45px;
+  border-bottom-width: 50px;
   border-radius: 4px;
   background-color: #fff;
-  max-width: 95vw;
-  max-height: 90vh;
+  max-width: 90vw;
+  max-height: 85vh; /* menor para aparecer bordas */
   box-shadow: 2px 4px 12px rgba(0,0,0,0.7);
   text-align: center;
   overflow: hidden;
 }
-
 .modal-polaroid img {
   width: auto;
-  height: 75vh;
+  height: 80vh; /* menor para destacar bordas */
   max-width: 90vw;
   object-fit: contain;
 }
-
 .modal-caption {
   width: 100%;
   font-weight: bold;
   color: #000;
   font-size: 1em;
-  padding: 4px 0;
+  padding: 5px 0;
   background-color: #fff;
 }
 
-/* Botões de navegação */
+/* Botões */
 .close, .prev, .next {
   position: absolute;
   font-size: 40px;
@@ -166,16 +158,15 @@ h1 {
 </head>
 <body>
 
-<!-- Botão de voltar -->
-<a href="https://sites.google.com/view/biodiversidade-do-cavg/p%C3%A1gina-inicial" class="back-button">↩ Voltar</a>
-
-<!-- Logo -->
-<img src="https://i.postimg.cc/d0BYm8Ly/P-rtico-Bio-Ori-Red.jpg" alt="Logo CaVG" class="logo">
-
 <h1>Galeria de Imagens Biodiversidade do CaVG</h1>
 
+<!-- Botão voltar -->
+<button class="back-button" onclick="window.location.href='https://sites.google.com/view/biodiversidade-do-cavg/p%C3%A1gina-inicial'">↩ Voltar ao Site</button>
+
+<!-- Logo -->
+<img src="https://i.postimg.cc/d0BYm8Ly/P-rtico-Bio-Ori-Red.jpg" alt="Logo Bio" class="logo">
+
 <div class="gallery">
-  <!-- 12 imagens -->
   <div class="thumb-polaroid" onclick="openModal(0)">
     <img src="https://i.postimg.cc/g0Gwj1fF/Boa.jpg" alt="Alma-de-gato">
     <div class="thumb-caption">Alma-de-gato</div>
@@ -201,32 +192,31 @@ h1 {
     <div class="thumb-caption">Caracará ou Gavião-de-queimada</div>
   </div>
   <div class="thumb-polaroid" onclick="openModal(6)">
-    <img src="https://i.postimg.cc/tTNQXQ3F/Img-2.jpg" alt="Coruja-buraqueira">
+    <img src="https://i.postimg.cc/Z5XnHg4z/Img-2.jpg" alt="Coruja-buraqueira">
     <div class="thumb-caption">Coruja-buraqueira</div>
   </div>
   <div class="thumb-polaroid" onclick="openModal(7)">
-    <img src="https://i.postimg.cc/zf4bH9hD/Img-3.jpg" alt="Garça-branca-grande">
-    <div class="thumb-caption">Garça-branca-grande</div>
+    <img src="https://i.postimg.cc/7Z7ZK4nS/Img-3.jpg" alt="Gavião-carijó">
+    <div class="thumb-caption">Gavião-carijó</div>
   </div>
   <div class="thumb-polaroid" onclick="openModal(8)">
-    <img src="https://i.postimg.cc/SR6hmLpK/Img-4.jpg" alt="João-de-barro">
+    <img src="https://i.postimg.cc/QtxT1j7s/Img-4.jpg" alt="João-de-barro">
     <div class="thumb-caption">João-de-barro</div>
   </div>
   <div class="thumb-polaroid" onclick="openModal(9)">
-    <img src="https://i.postimg.cc/8cTtqRvX/Img-5.jpg" alt="Pica-pau-verde-barrado">
-    <div class="thumb-caption">Pica-pau-verde-barrado</div>
+    <img src="https://i.postimg.cc/MTcKm4cq/Img-5.jpg" alt="Pica-pau-do-campo">
+    <div class="thumb-caption">Pica-pau-do-campo</div>
   </div>
   <div class="thumb-polaroid" onclick="openModal(10)">
-    <img src="https://i.postimg.cc/BQ9ZKc1N/Img-6.jpg" alt="Sabiá-do-campo">
-    <div class="thumb-caption">Sabiá-do-campo</div>
+    <img src="https://i.postimg.cc/tCs0dLHz/Img-6.jpg" alt="Sanhaço-cinzento">
+    <div class="thumb-caption">Sanhaço-cinzento</div>
   </div>
   <div class="thumb-polaroid" onclick="openModal(11)">
-    <img src="https://i.postimg.cc/G2ptt4qR/Img-7.jpg" alt="Tucano-toco">
+    <img src="https://i.postimg.cc/D0M4wT0b/Img-7.jpg" alt="Tucano-toco">
     <div class="thumb-caption">Tucano-toco</div>
   </div>
 </div>
 
-<!-- Modal -->
 <div id="myModal" class="modal">
   <span class="close" onclick="closeModal()">&times;</span>
   <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
@@ -246,8 +236,7 @@ let currentIndex = 0;
 function openModal(index) {
   currentIndex = index;
   document.getElementById('myModal').style.display = 'flex';
-  const modalImage = document.getElementById('modalImage');
-  modalImage.src = images[index].src;
+  document.getElementById('modalImage').src = images[index].src;
   document.getElementById('caption').innerText = captions[index];
 }
 
@@ -259,8 +248,7 @@ function changeSlide(step) {
   currentIndex += step;
   if(currentIndex >= images.length) currentIndex = 0;
   if(currentIndex < 0) currentIndex = images.length - 1;
-  const modalImage = document.getElementById('modalImage');
-  modalImage.src = images[currentIndex].src;
+  document.getElementById('modalImage').src = images[currentIndex].src;
   document.getElementById('caption').innerText = captions[currentIndex];
 }
 
