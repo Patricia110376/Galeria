@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galeria de Imagens Biodiversidade do CaVG</title>
+<title>Galeria de Imagens Biodiversidade do CaVG - Aves</title>
 <link href="https://fonts.googleapis.com/css2?family=Gentium+Basic&display=swap" rel="stylesheet">
 <style>
 body {
@@ -64,7 +64,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   border: 8px solid #fff;
-  border-bottom-width: 40px;
+  border-bottom-width: 25px; /* borda inferior menor */
   border-radius: 4px;
   background-color: #fff;
   box-shadow: 2px 4px 8px rgba(0,0,0,0.5);
@@ -116,7 +116,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   border: 10px solid #fff;
-  border-bottom-width: 60px;
+  border-bottom-width: 40px; /* modal mantém borda maior */
   border-radius: 4px;
   background-color: #fff;
   max-width: 90vw;
@@ -168,61 +168,154 @@ h1 {
 <body>
 
 <div class="gallery-wrapper">
-  <button class="back-button" onclick="window.location.href='https://sites.google.com/view/biodiversidade-do-cavg/p%C3%A1gina-inicial'">↩ Voltar</button>
+  <button class="back-button" onclick="window.location.href='https://sites.google.com/view/biodiversidade-do-cavg/p%C3%A1gina-inicial'">↩ Voltar ao Site</button>
   <img src="https://i.postimg.cc/d0BYm8Ly/P-rtico-Bio-Ori-Red.jpg" alt="Logo Bio" class="logo">
 
-  <h1>Galeria de Imagens Biodiversidade do CaVG</h1>
+  <h1>Galeria de Imagens Biodiversidade do CaVG - Aves</h1>
 
-  <div class="gallery">
-    <!-- 12 imagens -->
-    <div class="thumb-polaroid" onclick="openModal(0)">
-      <img src="https://i.postimg.cc/g0Gwj1fF/Boa.jpg" alt="Alma-de-gato">
-      <div class="thumb-caption">Alma-de-gato</div>
-    </div>
-    <div class="thumb-polaroid" onclick="openModal(1)">
-      <img src="https://i.postimg.cc/FKKLG2Gb/Anu-branco-1.jpg" alt="Anu-branco">
-      <div class="thumb-caption">Anu-branco</div>
-    </div>
-    <div class="thumb-polaroid" onclick="openModal(2)">
-      <img src="https://i.postimg.cc/dV3yFJVr/DSC08076.jpg" alt="Aparaçu-escamoso-do-sul">
-      <div class="thumb-caption">Aparaçu-escamoso-do-sul</div>
-    </div>
-    <div class="thumb-polaroid" onclick="openModal(3)">
-      <img src="https://i.postimg.cc/g2mcvW7Q/Boa-1-1.jpg" alt="Asa-de-telha">
-      <div class="thumb-caption">Asa-de-telha</div>
-    </div>
-    <div class="thumb-polaroid" onclick="openModal(4)">
-      <img src="https://i.postimg.cc/KvPyJYkJ/Img-1.jpg" alt="Beija-flor-dourado">
-      <div class="thumb-caption">Beija-flor-dourado</div>
-    </div>
-    <div class="thumb-polaroid" onclick="openModal(5)">
-      <img src="https://i.postimg.cc/SNpVVx9W/Boa-1.jpg" alt="Caracará ou Gavião-de-queimada">
-      <div class="thumb-caption">Caracará ou Gavião-de-queimada</div>
-    </div>
-    <div class="thumb-polaroid" onclick="openModal(6)">
-      <img src="https://i.postimg.cc/brsP3sCG/Espor-fito-e-gamet-fito.png" alt="Esporófito e Gametófito">
-      <div class="thumb-caption">Esporófito e Gametófito</div>
-    </div>
-    <div class="thumb-polaroid" onclick="openModal(7)">
-      <img src="https://i.postimg.cc/3N7yQ4jB/exemplo1.jpg" alt="Exemplo 1">
-      <div class="thumb-caption">Exemplo 1</div>
-    </div>
-    <div class="thumb-polaroid" onclick="openModal(8)">
-      <img src="https://i.postimg.cc/8cTcck6C/exemplo2.jpg" alt="Exemplo 2">
-      <div class="thumb-caption">Exemplo 2</div>
-    </div>
-    <div class="thumb-polaroid" onclick="openModal(9)">
-      <img src="https://i.postimg.cc/HWJBrXwd/exemplo3.jpg" alt="Exemplo 3">
-      <div class="thumb-caption">Exemplo 3</div>
-    </div>
-    <div class="thumb-polaroid" onclick="openModal(10)">
-      <img src="https://i.postimg.cc/fR9dzqgM/exemplo4.jpg" alt="Exemplo 4">
-      <div class="thumb-caption">Exemplo 4</div>
-    </div>
-    <div class="thumb-polaroid" onclick="openModal(11)">
-      <img src="https://i.postimg.cc/vBWNhtXd/exemplo5.jpg" alt="Exemplo 5">
-      <div class="thumb-caption">Exemplo 5</div>
-    </div>
+      <div class="gallery">
+  <!-- 1 -->
+  <div class="thumb-polaroid" onclick="openModal(0)">
+    <img src="https://i.postimg.cc/g0Gwj1fF/Boa.jpg" alt="Alma-de-gato">
+    <div class="thumb-caption">Alma-de-gato</div>
+  </div>
+
+  <!-- 2 -->
+  <div class="thumb-polaroid" onclick="openModal(1)">
+    <img src="https://i.postimg.cc/FKKLG2Gb/Anu-branco-1.jpg" alt="Anu-branco">
+    <div class="thumb-caption">Anu-branco</div>
+  </div>
+
+  <!-- 3 -->
+  <div class="thumb-polaroid" onclick="openModal(2)">
+    <img src="https://i.postimg.cc/dV3yFJVr/DSC08076.jpg" alt="Aparaçu-escamoso-do-sul">
+    <div class="thumb-caption">Aparaçu-escamoso-do-sul</div>
+  </div>
+
+  <!-- 4 -->
+  <div class="thumb-polaroid" onclick="openModal(3)">
+    <img src="https://i.postimg.cc/g2mcvW7Q/Boa-1-1.jpg" alt="Asa-de-telha">
+    <div class="thumb-caption">Asa-de-telha</div>
+  </div>
+
+  <!-- 5 -->
+  <div class="thumb-polaroid" onclick="openModal(4)">
+    <img src="https://i.postimg.cc/KvPyJYkJ/Img-1.jpg" alt="Beija-flor-dourado">
+    <div class="thumb-caption">Beija-flor-dourado</div>
+  </div>
+
+  <!-- 6 -->
+  <div class="thumb-polaroid" onclick="openModal(5)">
+    <img src="https://i.postimg.cc/SNpVVx9W/Boa-1.jpg" alt="Caracará ou Gavião-de-queimada">
+    <div class="thumb-caption">Caracará ou Gavião-de-queimada</div>
+  </div>
+
+  <!-- 7 -->
+  <div class="thumb-polaroid" onclick="openModal(6)">
+    <img src="https://i.postimg.cc/BnbhPwDy/Img-1.jpg" alt="Chimango">
+    <div class="thumb-caption">Chimango</div>
+  </div>
+
+  <!-- 8 -->
+  <div class="thumb-polaroid" onclick="openModal(7)">
+    <img src="https://i.postimg.cc/pr57hmx8/IMG1.jpg" alt="Chupim-do-brejo">
+    <div class="thumb-caption">Chupim-do-brejo</div>
+  </div>
+
+  <!-- 9 -->
+  <div class="thumb-polaroid" onclick="openModal(8)">
+    <img src="https://i.postimg.cc/MpgYH9Hs/IMG-3847-1.jpg" alt="Chupim ou Vira-bosta">
+    <div class="thumb-caption">Chupim ou Vira-bosta</div>
+  </div>
+
+  <!-- 10 -->
+  <div class="thumb-polaroid" onclick="openModal(9)">
+    <img src="https://i.postimg.cc/v89s47Tp/gavic3a3o-carijo.jpg" alt="Gavião-carijó">
+    <div class="thumb-caption">Gavião-carijó</div>
+  </div>
+
+  <!-- 11 -->
+  <div class="thumb-polaroid" onclick="openModal(10)">
+    <img src="https://i.postimg.cc/jdX8W4jY/IMG-3904-1.jpg" alt="Jaçanã Jovem">
+    <div class="thumb-caption">Jaçanã Jovem</div>
+  </div>
+
+  <!-- 12 -->
+  <div class="thumb-polaroid" onclick="openModal(11)">
+    <img src="https://i.postimg.cc/jSSMynWw/IMG-3906-1.jpg" alt="Jaçanã Adulto">
+    <div class="thumb-caption">Jaçanã Adulto</div>
+  </div>
+
+  <!-- 13 -->
+  <div class="thumb-polaroid" onclick="openModal(12)">
+    <img src="https://i.postimg.cc/LX8dCQT9/IMG-3983.jpg" alt="João-de-barro">
+    <div class="thumb-caption">João-de-barro</div>
+  </div>
+
+  <!-- 14 -->
+  <div class="thumb-polaroid" onclick="openModal(13)">
+    <img src="https://i.postimg.cc/FFknnd3T/Img-1.jpg" alt="Irerê ou Marrecão ou Marreca-piadeira">
+    <div class="thumb-caption">Irerê ou Marrecão ou Marreca-piadeira</div>
+  </div>
+
+  <!-- 15 -->
+  <div class="thumb-polaroid" onclick="openModal(14)">
+    <img src="https://i.postimg.cc/WzYHx6jh/Martin-Pescador-Verde-1.jpg" alt="Martim-pescador-verde">
+    <div class="thumb-caption">Martim-pescador-verde</div>
+  </div>
+
+  <!-- 16 -->
+  <div class="thumb-polaroid" onclick="openModal(15)">
+    <img src="https://i.postimg.cc/4xGP89bZ/DSC00069.jpg" alt="Quero-quero">
+    <div class="thumb-caption">Quero-quero</div>
+  </div>
+
+  <!-- 17 -->
+  <div class="thumb-polaroid" onclick="openModal(16)">
+    <img src="https://i.postimg.cc/YqqM4MSx/Photo-1747249155157.jpg" alt="Quiriquiri">
+    <div class="thumb-caption">Quiriquiri</div>
+  </div>
+
+  <!-- 18 -->
+  <div class="thumb-polaroid" onclick="openModal(17)">
+    <img src="https://i.postimg.cc/dQhfLftv/DSC06816-1.jpg" alt="Tachã ou Tarrã">
+    <div class="thumb-caption">Tachã ou Tarrã</div>
+  </div>
+
+  <!-- 19 -->
+  <div class="thumb-polaroid" onclick="openModal(18)">
+    <img src="https://i.postimg.cc/8zvKJFM1/IMG-1478.jpg" alt="Urubu-de-cabeça-preta">
+    <div class="thumb-caption">Urubu-de-cabeça-preta</div>
+  </div>
+
+  <!-- 20 -->
+  <div class="thumb-polaroid" onclick="openModal(19)">
+    <img src="https://i.postimg.cc/V6sQYsxY/IMG-3993.jpg" alt="Urubu-de-cabeça-vermelha">
+    <div class="thumb-caption">Urubu-de-cabeça-vermelha</div>
+  </div>
+
+  <!-- 21 -->
+  <div class="thumb-polaroid" onclick="openModal(20)">
+    <img src="https://i.postimg.cc/HL5D158x/Narceja-1.jpg" alt="Narceja ou Agachadeira">
+    <div class="thumb-caption">Narceja ou Agachadeira</div>
+  </div>
+
+  <!-- 22 -->
+  <div class="thumb-polaroid" onclick="openModal(21)">
+    <img src="https://via.placeholder.com/150" alt="Exemplo 15">
+    <div class="thumb-caption">Exemplo 15</div>
+  </div>
+
+  <!-- 23 -->
+  <div class="thumb-polaroid" onclick="openModal(22)">
+    <img src="https://via.placeholder.com/150" alt="Exemplo 16">
+    <div class="thumb-caption">Exemplo 16</div>
+  </div>
+
+  <!-- 24 -->
+  <div class="thumb-polaroid" onclick="openModal(23)">
+    <img src="https://via.placeholder.com/150" alt="Exemplo 17">
+    <div class="thumb-caption">Exemplo 17</div>
   </div>
 </div>
 
