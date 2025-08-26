@@ -11,39 +11,36 @@
       background-color: #4ea841;
     }
 
-    /* Ajuste do título */
     h1 {
       font-family: 'Gentium Basic', serif;
       text-align: center;
       color: white;
-      margin-bottom: 20px;
-      margin-top: 10px;
+      margin: 15px 0;
     }
 
-    /* Cabeçalho: botão voltar + logo */
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      max-width: 1200px;
       margin: 0 auto 20px auto;
-      max-width: 1200px; /* mesmo limite das miniaturas */
-      padding: 0 10px;
+      padding: 0 5px; /* encosta nos limites da grade */
     }
 
     .header button {
       background: white;
       border: none;
-      padding: 8px 14px;
-      border-radius: 8px;
+      padding: 6px 12px;
+      border-radius: 6px;
       cursor: pointer;
       font-size: 14px;
     }
 
     .header img {
-      height: 40px;
+      height: 36px;
     }
 
-    /* Grade de miniaturas */
+    /* grade miniaturas */
     .thumbs {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
@@ -53,10 +50,10 @@
       margin: 0 auto;
     }
 
-    /* Polaroid miniaturas */
+    /* polaroid miniaturas */
     .thumb-polaroid {
       background: white;
-      padding: 8px 8px 20px 8px; /* espaço menor para legenda */
+      padding: 6px 6px 10px 6px; /* espaço equilibrado */
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       border-radius: 4px;
       text-align: center;
@@ -68,10 +65,10 @@
       height: auto;
       display: block;
       cursor: pointer;
+      margin-bottom: 6px;
     }
 
     .thumb-caption {
-      margin-top: 6px;
       font-size: 13px;
       color: #333;
       line-height: 1.2em;
@@ -79,54 +76,53 @@
       overflow: hidden;
     }
 
-    /* Modal em zoom */
+    /* modal tela cheia */
     .modal {
       display: none;
       position: fixed;
       z-index: 9999;
       left: 0;
       top: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       background-color: #4ea841;
       justify-content: center;
       align-items: center;
     }
 
     .modal-content {
+      max-width: 95%;
+      max-height: 95%;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100%;
-      width: 100%;
     }
 
     .modal-polaroid {
       background: white;
-      padding: 12px 12px 25px 12px; /* legenda dentro */
+      padding: 10px;
       box-shadow: 0 6px 12px rgba(0,0,0,0.4);
       border-radius: 6px;
-      max-width: 95vw;
-      max-height: 90vh;
       display: flex;
       flex-direction: column;
       align-items: center;
+      max-width: 100%;
+      max-height: 100%;
     }
 
     .modal-polaroid img {
       max-width: 100%;
       max-height: 80vh;
-      height: auto;
+      object-fit: contain;
     }
 
     .modal-caption {
-      margin-top: 8px;
+      margin-top: 6px;
       font-size: 14px;
       color: #333;
       text-align: center;
     }
 
-    /* Botão fechar */
     .close {
       position: absolute;
       top: 20px;
@@ -152,14 +148,14 @@
       <img src="https://i.postimg.cc/SNMsnSnk/Espor-fito-e-gamet-fito.jpg" alt="Esporófito e Gametófito">
       <div class="thumb-caption">Esporófito e Gametófito</div>
     </div>
+
     <div class="thumb-polaroid" onclick="openModal('https://i.postimg.cc/brsP3sCG/Espor-fito-e-gamet-fito.png','Outra Imagem')">
       <img src="https://i.postimg.cc/brsP3sCG/Espor-fito-e-gamet-fito.png" alt="Outra Imagem">
       <div class="thumb-caption">Outra Imagem</div>
     </div>
-    <!-- Adicione mais miniaturas aqui -->
   </div>
 
-  <!-- Modal -->
+  <!-- modal -->
   <div id="myModal" class="modal">
     <span class="close" onclick="closeModal()">&times;</span>
     <div class="modal-content">
