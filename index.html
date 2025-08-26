@@ -16,52 +16,60 @@ h1 {
   padding: 20px;
   font-size: 2em;
   color: #fff;
-  position: relative;
+  margin: 0;
 }
 
-/* Botão Voltar */
+/* Galeria e posicionamento do botão/ logo */
+.gallery-wrapper {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
 .back-button {
   position: absolute;
-  top: 25px;
-  left: 20px; /* alinhado à margem da primeira miniatura */
+  top: 0;
+  left: 0; /* será alinhado com a primeira miniatura via JS */
   padding: 8px 16px;
-  border: 2px solid #fff;
-  background: transparent;
-  color: #fff;
   font-size: 16px;
   font-weight: bold;
-  cursor: pointer;
+  color: #fff;
+  border: 2px solid #fff;
+  background: transparent;
   border-radius: 6px;
-  transition: 0.3s;
+  cursor: pointer;
+  z-index: 1100;
 }
 .back-button:hover {
   background: rgba(255,255,255,0.15);
 }
 
-/* Logo */
 .logo {
   position: absolute;
-  top: 10px;
-  right: 20px; /* alinhado à borda da última miniatura */
+  top: 0;
+  right: 0; /* será alinhado com a última miniatura via JS */
   width: 80px;
   height: auto;
+  z-index: 1100;
 }
 
-/* Galeria de miniaturas */
+/* Grid das miniaturas */
 .gallery {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 15px;
   justify-items: center;
-  padding: 80px 20px 20px; /* espaço no topo pro botão e logo */
+  margin-top: 50px; /* espaço para botão e logo */
 }
 
 .thumb-polaroid {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 8px solid #fff;
-  border-bottom-width: 40px; /* espaço suficiente para até 2 linhas de legenda */
+  border-bottom-width: 40px; /* espaço para legenda */
   border-radius: 4px;
   background-color: #fff;
   box-shadow: 2px 4px 8px rgba(0,0,0,0.5);
@@ -81,19 +89,19 @@ h1 {
 .thumb-caption {
   position: absolute;
   bottom: 5px;
-  font-weight: bold;
-  color: #000;
-  font-size: 0.8em;
   width: 90%;
-  text-align: center;
+  font-weight: bold;
+  font-size: 0.75em;
   line-height: 1.1em;
+  color: #000;
+  text-align: center;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2; /* máximo 2 linhas */
   -webkit-box-orient: vertical;
 }
 
-/* Modal tela cheia */
+/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -124,7 +132,7 @@ h1 {
 
 .modal-polaroid img {
   width: auto;
-  height: 80vh; /* menor que antes p/ borda aparecer */
+  height: 80vh;
   max-width: 90vw;
   object-fit: contain;
 }
@@ -132,13 +140,13 @@ h1 {
 .modal-caption {
   width: 100%;
   font-weight: bold;
-  color: #000;
   font-size: 1em;
+  color: #000;
   padding: 5px 0;
   background-color: #fff;
 }
 
-/* Botões */
+/* Botões de navegação */
 .close, .prev, .next {
   position: absolute;
   font-size: 40px;
@@ -163,64 +171,66 @@ h1 {
 </head>
 <body>
 
-<h1>
-  Galeria de Imagens Biodiversidade do CaVG
-  <button class="back-button" onclick="window.location.href='https://sites.google.com/view/biodiversidade-do-cavg/p%C3%A1gina-inicial'">↩ Voltar ao Site</button>
-  <img src="https://i.postimg.cc/d0BYm8Ly/P-rtico-Bio-Ori-Red.jpg" alt="Logo CaVG" class="logo">
-</h1>
+<h1>Galeria de Imagens Biodiversidade do CaVG</h1>
 
-<div class="gallery">
-  <!-- 12 imagens -->
-  <div class="thumb-polaroid" onclick="openModal(0)">
-    <img src="https://i.postimg.cc/g0Gwj1fF/Boa.jpg" alt="Alma-de-gato">
-    <div class="thumb-caption">Alma-de-gato</div>
-  </div>
-  <div class="thumb-polaroid" onclick="openModal(1)">
-    <img src="https://i.postimg.cc/FKKLG2Gb/Anu-branco-1.jpg" alt="Anu-branco">
-    <div class="thumb-caption">Anu-branco</div>
-  </div>
-  <div class="thumb-polaroid" onclick="openModal(2)">
-    <img src="https://i.postimg.cc/dV3yFJVr/DSC08076.jpg" alt="Aparaçu-escamoso-do-sul">
-    <div class="thumb-caption">Aparaçu-escamoso-do-sul</div>
-  </div>
-  <div class="thumb-polaroid" onclick="openModal(3)">
-    <img src="https://i.postimg.cc/g2mcvW7Q/Boa-1-1.jpg" alt="Asa-de-telha">
-    <div class="thumb-caption">Asa-de-telha</div>
-  </div>
-  <div class="thumb-polaroid" onclick="openModal(4)">
-    <img src="https://i.postimg.cc/KvPyJYkJ/Img-1.jpg" alt="Beija-flor-dourado">
-    <div class="thumb-caption">Beija-flor-dourado</div>
-  </div>
-  <div class="thumb-polaroid" onclick="openModal(5)">
-    <img src="https://i.postimg.cc/SNpVVx9W/Boa-1.jpg" alt="Caracará ou Gavião-de-queimada">
-    <div class="thumb-caption">Caracará ou Gavião-de-queimada</div>
-  </div>
-  <div class="thumb-polaroid" onclick="openModal(6)">
-    <img src="https://i.postimg.cc/brsP3sCG/Espor-fito-e-gamet-fito.png" alt="Esporófito e Gametófito">
-    <div class="thumb-caption">Esporófito e Gametófito</div>
-  </div>
-  <div class="thumb-polaroid" onclick="openModal(7)">
-    <img src="https://i.postimg.cc/3N7yQ4jB/exemplo1.jpg" alt="Exemplo 1">
-    <div class="thumb-caption">Exemplo 1</div>
-  </div>
-  <div class="thumb-polaroid" onclick="openModal(8)">
-    <img src="https://i.postimg.cc/8cTcck6C/exemplo2.jpg" alt="Exemplo 2">
-    <div class="thumb-caption">Exemplo 2</div>
-  </div>
-  <div class="thumb-polaroid" onclick="openModal(9)">
-    <img src="https://i.postimg.cc/HWJBrXwd/exemplo3.jpg" alt="Exemplo 3">
-    <div class="thumb-caption">Exemplo 3</div>
-  </div>
-  <div class="thumb-polaroid" onclick="openModal(10)">
-    <img src="https://i.postimg.cc/fR9dzqgM/exemplo4.jpg" alt="Exemplo 4">
-    <div class="thumb-caption">Exemplo 4</div>
-  </div>
-  <div class="thumb-polaroid" onclick="openModal(11)">
-    <img src="https://i.postimg.cc/vBWNhtXd/exemplo5.jpg" alt="Exemplo 5">
-    <div class="thumb-caption">Exemplo 5</div>
+<div class="gallery-wrapper">
+  <button class="back-button" onclick="window.location.href='https://sites.google.com/view/biodiversidade-do-cavg/p%C3%A1gina-inicial'">↩ Voltar ao Site</button>
+  <img src="https://i.postimg.cc/d0BYm8Ly/P-rtico-Bio-Ori-Red.jpg" alt="Logo Bio" class="logo">
+
+  <div class="gallery">
+    <!-- 12 imagens -->
+    <div class="thumb-polaroid" onclick="openModal(0)">
+      <img src="https://i.postimg.cc/g0Gwj1fF/Boa.jpg" alt="Alma-de-gato">
+      <div class="thumb-caption">Alma-de-gato</div>
+    </div>
+    <div class="thumb-polaroid" onclick="openModal(1)">
+      <img src="https://i.postimg.cc/FKKLG2Gb/Anu-branco-1.jpg" alt="Anu-branco">
+      <div class="thumb-caption">Anu-branco</div>
+    </div>
+    <div class="thumb-polaroid" onclick="openModal(2)">
+      <img src="https://i.postimg.cc/dV3yFJVr/DSC08076.jpg" alt="Aparaçu-escamoso-do-sul">
+      <div class="thumb-caption">Aparaçu-escamoso-do-sul</div>
+    </div>
+    <div class="thumb-polaroid" onclick="openModal(3)">
+      <img src="https://i.postimg.cc/g2mcvW7Q/Boa-1-1.jpg" alt="Asa-de-telha">
+      <div class="thumb-caption">Asa-de-telha</div>
+    </div>
+    <div class="thumb-polaroid" onclick="openModal(4)">
+      <img src="https://i.postimg.cc/KvPyJYkJ/Img-1.jpg" alt="Beija-flor-dourado">
+      <div class="thumb-caption">Beija-flor-dourado</div>
+    </div>
+    <div class="thumb-polaroid" onclick="openModal(5)">
+      <img src="https://i.postimg.cc/SNpVVx9W/Boa-1.jpg" alt="Caracará ou Gavião-de-queimada">
+      <div class="thumb-caption">Caracará ou Gavião-de-queimada</div>
+    </div>
+    <div class="thumb-polaroid" onclick="openModal(6)">
+      <img src="https://i.postimg.cc/brsP3sCG/Espor-fito-e-gamet-fito.png" alt="Esporófito e Gametófito">
+      <div class="thumb-caption">Esporófito e Gametófito</div>
+    </div>
+    <div class="thumb-polaroid" onclick="openModal(7)">
+      <img src="https://i.postimg.cc/3N7yQ4jB/exemplo1.jpg" alt="Exemplo 1">
+      <div class="thumb-caption">Exemplo 1</div>
+    </div>
+    <div class="thumb-polaroid" onclick="openModal(8)">
+      <img src="https://i.postimg.cc/8cTcck6C/exemplo2.jpg" alt="Exemplo 2">
+      <div class="thumb-caption">Exemplo 2</div>
+    </div>
+    <div class="thumb-polaroid" onclick="openModal(9)">
+      <img src="https://i.postimg.cc/HWJBrXwd/exemplo3.jpg" alt="Exemplo 3">
+      <div class="thumb-caption">Exemplo 3</div>
+    </div>
+    <div class="thumb-polaroid" onclick="openModal(10)">
+      <img src="https://i.postimg.cc/fR9dzqgM/exemplo4.jpg" alt="Exemplo 4">
+      <div class="thumb-caption">Exemplo 4</div>
+    </div>
+    <div class="thumb-polaroid" onclick="openModal(11)">
+      <img src="https://i.postimg.cc/vBWNhtXd/exemplo5.jpg" alt="Exemplo 5">
+      <div class="thumb-caption">Exemplo 5</div>
+    </div>
   </div>
 </div>
 
+<!-- Modal -->
 <div id="myModal" class="modal">
   <span class="close" onclick="closeModal()">&times;</span>
   <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
@@ -253,13 +263,28 @@ function changeSlide(step) {
   currentIndex += step;
   if(currentIndex >= images.length) currentIndex = 0;
   if(currentIndex < 0) currentIndex = images.length - 1;
-  const modalImage = document.getElementById('modalImage');
-  modalImage.src = images[currentIndex].src;
+  document.getElementById('modalImage').src = images[currentIndex].src;
   document.getElementById('caption').innerText = captions[currentIndex];
 }
 
 document.getElementById('myModal').addEventListener('click', function(e){
   if(e.target === this) closeModal();
+});
+
+/* Alinhamento automático do botão voltar e logo */
+window.addEventListener('load', () => {
+  const firstThumb = document.querySelector('.thumb-polaroid');
+  const lastThumb = document.querySelectorAll('.thumb-polaroid');
+  const last = lastThumb[lastThumb.length - 1];
+
+  const backBtn = document.querySelector('.back-button');
+  const logoImg = document.querySelector('.logo');
+
+  const firstRect = firstThumb.getBoundingClientRect();
+  const lastRect = last.getBoundingClientRect();
+
+  backBtn.style.left = `${firstRect.left}px`;
+  logoImg.style.left = `${lastRect.right - logoImg.offsetWidth}px`;
 });
 </script>
 
