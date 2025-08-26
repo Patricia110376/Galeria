@@ -19,35 +19,32 @@ h1 {
   position: relative;
 }
 
-/* Botão voltar */
+/* Botão Voltar */
 .back-button {
-  position: fixed;
-  top: 20px;
-  left: 20px; /* alinhado com borda esquerda */
+  position: absolute;
+  top: 25px;
+  left: 20px; /* alinhado à margem da primeira miniatura */
   padding: 8px 16px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
   border: 2px solid #fff;
   background: transparent;
-  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
-  z-index: 1100;
+  border-radius: 6px;
+  transition: 0.3s;
 }
 .back-button:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.15);
 }
 
 /* Logo */
 .logo {
-  position: fixed;
-  top: 15px;
-  right: 20px; /* alinhado com borda direita */
+  position: absolute;
+  top: 10px;
+  right: 20px; /* alinhado à borda da última miniatura */
   width: 80px;
-  z-index: 1000;
-}
-.modal .logo {
-  display: none; /* esconde o logo no zoom */
+  height: auto;
 }
 
 /* Galeria de miniaturas */
@@ -56,15 +53,15 @@ h1 {
   grid-template-columns: repeat(6, 1fr);
   gap: 15px;
   justify-items: center;
-  padding: 20px;
+  padding: 80px 20px 20px; /* espaço no topo pro botão e logo */
 }
 
 .thumb-polaroid {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 6px solid #fff;
-  border-bottom-width: 38px; /* espaço menor para legenda */
+  border: 8px solid #fff;
+  border-bottom-width: 40px; /* espaço suficiente para até 2 linhas de legenda */
   border-radius: 4px;
   background-color: #fff;
   box-shadow: 2px 4px 8px rgba(0,0,0,0.5);
@@ -74,22 +71,26 @@ h1 {
   width: 150px;
   height: 150px;
 }
+
 .thumb-polaroid img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .thumb-caption {
   position: absolute;
-  bottom: 6px;
-  width: 140px;
+  bottom: 5px;
   font-weight: bold;
   color: #000;
-  font-size: 0.75em;
+  font-size: 0.8em;
+  width: 90%;
   text-align: center;
-  line-height: 1.2em;
-  max-height: 2.4em; /* máximo 2 linhas */
+  line-height: 1.1em;
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* máximo 2 linhas */
+  -webkit-box-orient: vertical;
 }
 
 /* Modal tela cheia */
@@ -105,26 +106,29 @@ h1 {
   align-items: center;
   justify-content: center;
 }
+
 .modal-polaroid {
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 10px solid #fff;
-  border-bottom-width: 50px;
+  border-bottom-width: 60px;
   border-radius: 4px;
   background-color: #fff;
   max-width: 90vw;
-  max-height: 85vh; /* menor para aparecer bordas */
+  max-height: 85vh;
   box-shadow: 2px 4px 12px rgba(0,0,0,0.7);
   text-align: center;
   overflow: hidden;
 }
+
 .modal-polaroid img {
   width: auto;
-  height: 80vh; /* menor para destacar bordas */
+  height: 80vh; /* menor que antes p/ borda aparecer */
   max-width: 90vw;
   object-fit: contain;
 }
+
 .modal-caption {
   width: 100%;
   font-weight: bold;
@@ -153,20 +157,20 @@ h1 {
 
 @media (max-width: 800px) {
   .gallery { grid-template-columns: repeat(2, 1fr); }
+  .thumb-polaroid { width: 140px; height: 140px; }
 }
 </style>
 </head>
 <body>
 
-<h1>Galeria de Imagens Biodiversidade do CaVG</h1>
-
-<!-- Botão voltar -->
-<button class="back-button" onclick="window.location.href='https://sites.google.com/view/biodiversidade-do-cavg/p%C3%A1gina-inicial'">↩ Voltar ao Site</button>
-
-<!-- Logo -->
-<img src="https://i.postimg.cc/d0BYm8Ly/P-rtico-Bio-Ori-Red.jpg" alt="Logo Bio" class="logo">
+<h1>
+  Galeria de Imagens Biodiversidade do CaVG
+  <button class="back-button" onclick="window.location.href='https://sites.google.com/view/biodiversidade-do-cavg/p%C3%A1gina-inicial'">↩ Voltar ao Site</button>
+  <img src="https://i.postimg.cc/d0BYm8Ly/P-rtico-Bio-Ori-Red.jpg" alt="Logo CaVG" class="logo">
+</h1>
 
 <div class="gallery">
+  <!-- 12 imagens -->
   <div class="thumb-polaroid" onclick="openModal(0)">
     <img src="https://i.postimg.cc/g0Gwj1fF/Boa.jpg" alt="Alma-de-gato">
     <div class="thumb-caption">Alma-de-gato</div>
@@ -192,28 +196,28 @@ h1 {
     <div class="thumb-caption">Caracará ou Gavião-de-queimada</div>
   </div>
   <div class="thumb-polaroid" onclick="openModal(6)">
-    <img src="https://i.postimg.cc/Z5XnHg4z/Img-2.jpg" alt="Coruja-buraqueira">
-    <div class="thumb-caption">Coruja-buraqueira</div>
+    <img src="https://i.postimg.cc/brsP3sCG/Espor-fito-e-gamet-fito.png" alt="Esporófito e Gametófito">
+    <div class="thumb-caption">Esporófito e Gametófito</div>
   </div>
   <div class="thumb-polaroid" onclick="openModal(7)">
-    <img src="https://i.postimg.cc/7Z7ZK4nS/Img-3.jpg" alt="Gavião-carijó">
-    <div class="thumb-caption">Gavião-carijó</div>
+    <img src="https://i.postimg.cc/3N7yQ4jB/exemplo1.jpg" alt="Exemplo 1">
+    <div class="thumb-caption">Exemplo 1</div>
   </div>
   <div class="thumb-polaroid" onclick="openModal(8)">
-    <img src="https://i.postimg.cc/QtxT1j7s/Img-4.jpg" alt="João-de-barro">
-    <div class="thumb-caption">João-de-barro</div>
+    <img src="https://i.postimg.cc/8cTcck6C/exemplo2.jpg" alt="Exemplo 2">
+    <div class="thumb-caption">Exemplo 2</div>
   </div>
   <div class="thumb-polaroid" onclick="openModal(9)">
-    <img src="https://i.postimg.cc/MTcKm4cq/Img-5.jpg" alt="Pica-pau-do-campo">
-    <div class="thumb-caption">Pica-pau-do-campo</div>
+    <img src="https://i.postimg.cc/HWJBrXwd/exemplo3.jpg" alt="Exemplo 3">
+    <div class="thumb-caption">Exemplo 3</div>
   </div>
   <div class="thumb-polaroid" onclick="openModal(10)">
-    <img src="https://i.postimg.cc/tCs0dLHz/Img-6.jpg" alt="Sanhaço-cinzento">
-    <div class="thumb-caption">Sanhaço-cinzento</div>
+    <img src="https://i.postimg.cc/fR9dzqgM/exemplo4.jpg" alt="Exemplo 4">
+    <div class="thumb-caption">Exemplo 4</div>
   </div>
   <div class="thumb-polaroid" onclick="openModal(11)">
-    <img src="https://i.postimg.cc/D0M4wT0b/Img-7.jpg" alt="Tucano-toco">
-    <div class="thumb-caption">Tucano-toco</div>
+    <img src="https://i.postimg.cc/vBWNhtXd/exemplo5.jpg" alt="Exemplo 5">
+    <div class="thumb-caption">Exemplo 5</div>
   </div>
 </div>
 
@@ -236,7 +240,8 @@ let currentIndex = 0;
 function openModal(index) {
   currentIndex = index;
   document.getElementById('myModal').style.display = 'flex';
-  document.getElementById('modalImage').src = images[index].src;
+  const modalImage = document.getElementById('modalImage');
+  modalImage.src = images[index].src;
   document.getElementById('caption').innerText = captions[index];
 }
 
@@ -248,7 +253,8 @@ function changeSlide(step) {
   currentIndex += step;
   if(currentIndex >= images.length) currentIndex = 0;
   if(currentIndex < 0) currentIndex = images.length - 1;
-  document.getElementById('modalImage').src = images[currentIndex].src;
+  const modalImage = document.getElementById('modalImage');
+  modalImage.src = images[currentIndex].src;
   document.getElementById('caption').innerText = captions[currentIndex];
 }
 
