@@ -13,27 +13,25 @@ body {
 }
 h1 {
   text-align: center;
-  padding: 20px 0;
+  padding: 10px 0 20px 0;
   font-size: 2em;
   color: #fff;
   margin: 0;
 }
 
-/* Logo (substitui o botão voltar) */
+/* Logo centralizado */
 .logo {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 80px;
+  display: block;
+  margin: 20px auto 10px auto;
+  width: 120px;
   height: auto;
   z-index: 1000;
-  cursor: pointer;
 }
 
 /* Galeria de miniaturas */
 .gallery-wrapper {
   position: relative;
-  padding: 70px 20px 20px 20px;
+  padding: 10px 20px 20px 20px;
 }
 
 .gallery {
@@ -153,96 +151,55 @@ h1 {
 <body>
 
 <div class="gallery-wrapper">
-  <!-- Logo agora funciona como link de voltar -->
+  <!-- Logo centralizado sem link -->
   <img src="https://i.postimg.cc/d0BYm8Ly/P-rtico-Bio-Ori-Red.jpg" 
        alt="Logo Bio" 
-       class="logo" 
-       onclick="window.location.href='https://sites.google.com/view/biodiversidade-do-cavg/p%C3%A1gina-inicial'">
+       class="logo">
 
   <h1>Galeria de Imagens Biodiversidade do CaVG - Aves</h1>
 
   <div class="gallery">
-    <!-- Thumbnails -->
+    <!-- 41 miniaturas -->
     <div class="thumb-polaroid" onclick="openModal(0)"><img src="https://i.postimg.cc/zGCbJq2F/Boa-1.jpg"><div class="thumb-caption">Alma-de-gato</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(1)"><img src="https://i.postimg.cc/FKKLG2Gb/Anu-branco-1.jpg"><div class="thumb-caption">Anu-branco</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(2)"><img src="https://i.postimg.cc/dV3yFJVr/DSC08076.jpg"><div class="thumb-caption">Aparaçu-escamoso-do-sul</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(3)"><img src="https://i.postimg.cc/g2mcvW7Q/Boa-1-1.jpg"><div class="thumb-caption">Asa-de-telha</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(4)"><img src="https://i.postimg.cc/KvPyJYkJ/Img-1.jpg"><div class="thumb-caption">Beija-flor-dourado</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(5)"><img src="https://i.postimg.cc/NMj3zyKn/Bem-te-vi.jpg"><div class="thumb-caption">Bem-te-vi</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(6)"><img src="https://i.postimg.cc/RV1zqzxX/Can-rio-da-terra.jpg"><div class="thumb-caption">Canário-da-terra</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(7)"><img src="https://i.postimg.cc/SNpVVx9W/Boa-1.jpg"><div class="thumb-caption">Caracará ou Gavião-de-queimada</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(8)"><img src="https://i.postimg.cc/LXDSr5j2/Boa-7-1.jpg"><div class="thumb-caption">Cardeal Adulto</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(9)"><img src="https://i.postimg.cc/3JdhcKNQ/Boa-10-1.jpg"><div class="thumb-caption">Cardeal Jovem</div></div>
-                                                                                                                                                             
     <div class="thumb-polaroid" onclick="openModal(10)"><img src="https://i.postimg.cc/L4fB3Mn3/DSC08048-1.jpg"><div class="thumb-caption">Caturrita</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(11)"><img src="https://i.postimg.cc/BnbhPwDy/Img-1.jpg"><div class="thumb-caption">Chimango</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(12)"><img src="https://i.postimg.cc/pr57hmx8/IMG1.jpg"><div class="thumb-caption">Chupim-do-brejo</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(13)"><img src="https://i.postimg.cc/MpgYH9Hs/IMG-3847-1.jpg"><div class="thumb-caption">Chupim ou Vira-bosta</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(14)"><img src="https://i.postimg.cc/52NNVtQw/Gar-a-branca-grande.jpg"><div class="thumb-caption">Garça-branca-grande</div></div>
-                                                                                                                                                                               
     <div class="thumb-polaroid" onclick="openModal(15)"><img src="https://i.postimg.cc/WbpY0vNQ/DSC04528-1.jpg"><div class="thumb-caption">Garça-branca-pequena</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(16)"><img src="https://i.postimg.cc/v89s47Tp/gavic3a3o-carijo.jpg"><div class="thumb-caption">Gavião-carijó</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(17)"><img src="https://i.postimg.cc/jSSMynWw/IMG-3906-1.jpg"><div class="thumb-caption">Jaçanã Adulto</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(18)"><img src="https://i.postimg.cc/jdX8W4jY/IMG-3904-1.jpg"><div class="thumb-caption">Jaçanã Jovem</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(19)"><img src="https://i.postimg.cc/LX8dCQT9/IMG-3983.jpg"><div class="thumb-caption">João-de-barro</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(20)"><img src="https://i.postimg.cc/nchPbJDn/IMG-1836-1.jpg"><div class="thumb-caption">Maçarico-do-banhado ou Tapicuru</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(21)"><img src="https://i.postimg.cc/FFknnd3T/Img-1.jpg"><div class="thumb-caption">Marrecão ou Marreca-piadeira ou Irerê</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(22)"><img src="https://i.postimg.cc/WzYHx6jh/Martin-Pescador-Verde-1.jpg"><div class="thumb-caption">Martim-pescador-verde</div></div>
-                                                                                                                                                                                     
     <div class="thumb-polaroid" onclick="openModal(23)"><img src="https://i.postimg.cc/0ymsdfPV/Mergulh-o-1.jpg"><div class="thumb-caption">Mergulhão ou Biguá</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(24)"><img src="https://i.postimg.cc/HL5D158x/Narceja-1.jpg"><div class="thumb-caption">Narceja ou Agachadeira</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(25)"><img src="https://i.postimg.cc/dVn0yJW7/IMG-3857-1.jpg"><div class="thumb-caption">Noivinha</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(26)"><img src="https://i.postimg.cc/MHSR7rCt/Pica-Pau-Branco-1.jpg"><div class="thumb-caption">Pica-pau-branco</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(27)"><img src="https://i.postimg.cc/d346NYm4/DSC06877-1.jpg"><div class="thumb-caption">Pica-pau-do-campo</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(28)"><img src="https://i.postimg.cc/Hnz810xt/Pica-Pau-Verde-Barrado-1.jpg"><div class="thumb-caption">Pica-pau-verde-barrado</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(29)"><img src="https://i.postimg.cc/4xGP89bZ/DSC00069.jpg"><div class="thumb-caption">Quero-quero</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(30)"><img src="https://i.postimg.cc/YqqM4MSx/Photo-1747249155157.jpg"><div class="thumb-caption">Quiriquiri</div></div>
-
     <div class="thumb-polaroid" onclick="openModal(31)"><img src="https://i.postimg.cc/2ys7fQpZ/S-bia-Laranjeira-1.jpg"><div class="thumb-caption">Sabiá-laranjeira</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(32)"><img src="https://i.postimg.cc/bNYmpT2Q/S-bia-poca-1.jpg"><div class="thumb-caption">Sabiá-poca</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(33)"><img src="https://i.postimg.cc/vmLjqjdV/Sanha-u-Cinzento-1.jpg"><div class="thumb-caption">Sanhaço-cinzento</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(34)"><img src="https://i.postimg.cc/wxWNZtSB/sabi-cavaleiro-1.jpg"><div class="thumb-caption">Suiriri</div></div>
-    
-    <div class="thumb-polaroid" onclick="openModal(35)"><img src="https://i.postimg.cc/dQhfLftv/DSC06816-1.jpg"><div class="thumb-caption">Tachã ou Tarrã</div></div>
-    
+    <div class="thumb-polaroid" onclick="openModal(35)"><img src="https://i.postimg.cc/dQhfLftv/DSC06816-1.jpg"><div class="thumb-caption">Tarrã ou Tachã</div></div>
     <div class="thumb-polaroid" onclick="openModal(36)"><img src="https://i.postimg.cc/BbkJgvrp/Tesourinha-2.jpg"><div class="thumb-caption">Tesourinha</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(37)"><img src="https://i.postimg.cc/Wpk3s64c/IMG-3890-1.jpg"><div class="thumb-caption">Tico-tico</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(38)"><img src="https://i.postimg.cc/8C5K4Cwq/Tico-Tico-Rei-1.jpg"><div class="thumb-caption">Tico-tico-rei</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(39)"><img src="https://i.postimg.cc/8zvKJFM1/IMG-1478.jpg"><div class="thumb-caption">Urubu-de-cabeça-preta</div></div>
-    
     <div class="thumb-polaroid" onclick="openModal(40)"><img src="https://i.postimg.cc/V6sQYsxY/IMG-3993.jpg"><div class="thumb-caption">Urubu-de-cabeça-vermelha</div></div>
   </div>
 </div>
