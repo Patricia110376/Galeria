@@ -11,27 +11,28 @@ body {
   font-family: 'Gentium Basic', serif;
   background-color: #4ea841;
 }
-h1 {
+header {
   text-align: center;
   padding: 20px 0;
+  position: relative;
+}
+h1 {
   font-size: 2em;
   color: #fff;
-  margin: 0;
+  margin: 10px 0 0 0;
 }
 
-/* Logo */
+/* Logo centralizado */
 .logo {
-  position: absolute;
-  top: 10px;
+  display: block;
+  margin: 0 auto;
   width: 80px;
   height: auto;
-  z-index: 1000;
 }
 
 /* Galeria de miniaturas */
 .gallery-wrapper {
-  position: relative;
-  padding: 70px 20px 20px 20px;
+  padding: 20px;
 }
 
 .gallery {
@@ -150,83 +151,63 @@ h1 {
 </head>
 <body>
 
-<div class="gallery-wrapper">
+<header>
   <img src="https://i.postimg.cc/d0BYm8Ly/P-rtico-Bio-Ori-Red.jpg" alt="Logo Bio" class="logo">
-
   <h1>Galeria de Imagens Biodiversidade do CaVG - Plantas</h1>
+</header>
 
+<div class="gallery-wrapper">
   <div class="gallery">
-    <!-- 1 -->
+    <!-- Miniaturas (exemplo) -->
     <div class="thumb-polaroid" onclick="openModal(0)">
       <img src="https://i.postimg.cc/DzN83rtR/Copa-da-rvore-Foto-1.jpg" alt="Acácia-negra">
       <div class="thumb-caption">Acácia-negra</div>
     </div>
-
-    <!-- 2 -->
     <div class="thumb-polaroid" onclick="openModal(1)">
       <img src="https://i.postimg.cc/kXL1GzW5/Detalhe-do-fruto-e-das-folhas-bicompostas-foto2.jpg" alt="Angico-branco ou Angico">
       <div class="thumb-caption">Angico-branco ou Angico</div>
     </div>
-
-        <!-- 10 -->
-    <div class="thumb-polaroid" onclick="openModal(9)">
-      <img src="https://i.postimg.cc/qvcvG1cF/Esp-cie-no-ambiente-e-detalhe-de-uma-planta-1.jpg" alt="Antócero">
-      <div class="thumb-caption">Antócero</div>
-    </div>
-    
-    <!-- 3 -->
     <div class="thumb-polaroid" onclick="openModal(2)">
       <img src="https://i.postimg.cc/sXp3ZhgN/Flor-foto-2.jpg" alt="Araticum">
       <div class="thumb-caption">Araticum</div>
     </div>
-
-    <!-- 12 -->
-    <div class="thumb-polaroid" onclick="openModal(11)">
-      <img src="https://i.postimg.cc/nz6SJQk0/H-bito-arb-reo-foto1.jpg" alt="Araucária ou Pinheiro-do-Paraná">
-      <div class="thumb-caption">Araucária ou Pinheiro-do-Paraná</div>
-    </div>
-    
-     <!-- 9 -->
-    <div class="thumb-polaroid" onclick="openModal(8)">
-      <img src="https://i.postimg.cc/J0nJ57CW/H-bito-foto1.jpg" alt="Bananeira">
-      <div class="thumb-caption">Bananeira</div>
-    </div>
-    
-    <!-- 4 -->
     <div class="thumb-polaroid" onclick="openModal(3)">
       <img src="https://i.postimg.cc/Rhsy3SKY/Infloresc-ncia-apresentando-flores-com-longos-estames-coloridos-foto-2.jpg" alt="Caliandra ou Esponjinha">
       <div class="thumb-caption">Caliandra ou Esponjinha</div>
     </div>
-
-    <!-- 5 -->
     <div class="thumb-polaroid" onclick="openModal(4)">
       <img src="https://i.postimg.cc/15Sr6hJC/Frutos-maduros-expondo-o-arilo-branco-quando-deiscentes-fruto4.jpg" alt="Espinheira-santa">
       <div class="thumb-caption">Espinheira-santa</div>
     </div>
-
-    <!-- 6 -->
     <div class="thumb-polaroid" onclick="openModal(5)">
       <img src="https://i.postimg.cc/5NJDtrv1/Fruto-foto3.jpg" alt="Ingá-feijão">
       <div class="thumb-caption">Ingá-feijão</div>
     </div>
-
-     <!-- 11 -->
-    <div class="thumb-polaroid" onclick="openModal(10)">
-      <img src="https://i.postimg.cc/GhT3KPW5/H-bito-com-caule-nico-com-coroa-de-folhas-no-pice-foto1.jpg" alt="Palmeira-de-ramos ou Palma-sagu ou Cyca">
-      <div class="thumb-caption">Palmeira-de-ramos ou Palma-sagu ou Cyca</div>
-    </div>
-    
-    <!-- 7 -->
     <div class="thumb-polaroid" onclick="openModal(6)">
       <img src="https://i.postimg.cc/Vvdrb7Xf/H-bito-foto1.jpg" alt="Palmeira-leque-do-Japão">
       <div class="thumb-caption">Palmeira-leque-do-Japão</div>
     </div>
-
-    <!-- 8 -->
     <div class="thumb-polaroid" onclick="openModal(7)">
       <img src="https://i.postimg.cc/jSdV6GL4/H-bito-foto1.jpg" alt="Palmeira-real">
       <div class="thumb-caption">Palmeira-real</div>
     </div>
+    <div class="thumb-polaroid" onclick="openModal(8)">
+      <img src="https://i.postimg.cc/J0nJ57CW/H-bito-foto1.jpg" alt="Bananeira">
+      <div class="thumb-caption">Bananeira</div>
+    </div>
+    <div class="thumb-polaroid" onclick="openModal(9)">
+      <img src="https://i.postimg.cc/qvcvG1cF/Esp-cie-no-ambiente-e-detalhe-de-uma-planta-1.jpg" alt="Antócero">
+      <div class="thumb-caption">Antócero</div>
+    </div>
+    <div class="thumb-polaroid" onclick="openModal(10)">
+      <img src="https://i.postimg.cc/GhT3KPW5/H-bito-com-caule-nico-com-coroa-de-folhas-no-pice-foto1.jpg" alt="Palmeira-de-ramos ou Palma-sagu ou Cyca">
+      <div class="thumb-caption">Palmeira-de-ramos ou Palma-sagu ou Cyca</div>
+    </div>
+    <div class="thumb-polaroid" onclick="openModal(11)">
+      <img src="https://i.postimg.cc/nz6SJQk0/H-bito-arb-reo-foto1.jpg" alt="Araucária ou Pinheiro-do-Paraná">
+      <div class="thumb-caption">Araucária ou Pinheiro-do-Paraná</div>
+    </div>
+  </div>
 </div>
 
 <!-- Modal -->
@@ -251,12 +232,10 @@ function openModal(index) {
   document.getElementById('myModal').style.display = 'flex';
   document.getElementById('modalImage').src = images[index].src;
   document.getElementById('caption').innerText = captions[index];
-  document.querySelector('.logo').style.display = 'none';
 }
 
 function closeModal() {
   document.getElementById('myModal').style.display = 'none';
-  document.querySelector('.logo').style.display = 'block';
 }
 
 function changeSlide(step) {
@@ -269,16 +248,6 @@ function changeSlide(step) {
 
 document.getElementById('myModal').addEventListener('click', function(e){
   if(e.target === this) closeModal();
-});
-
-/* Alinhamento automático do logotipo */
-window.addEventListener('load', () => {
-  const lastThumbs = document.querySelectorAll('.thumb-polaroid');
-  const lastThumb = lastThumbs[lastThumbs.length - 1];
-  const logoImg = document.querySelector('.logo');
-  const lastRect = lastThumb.getBoundingClientRect();
-
-  logoImg.style.left = `${lastRect.right - logoImg.offsetWidth}px`;
 });
 </script>
 
